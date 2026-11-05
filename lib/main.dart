@@ -5,6 +5,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'firebase_options.dart';
+import 'firestore_products_page.dart';
+import 'manage_products_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -3078,6 +3080,22 @@ class _DeviceStorePageState extends State<DeviceStorePage> {
           selectedColor: _AppColors.green,
           side: BorderSide(
               color: _favoritesOnly ? _AppColors.green : _AppColors.line),
+        ),
+        ActionChip(
+          avatar: const Icon(Icons.cloud_outlined, size: 17),
+          label: const Text('Firestore products'),
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const FirestoreProductsPage()),
+          ),
+        ),
+        ActionChip(
+          avatar: const Icon(Icons.edit_note_rounded, size: 17),
+          label: const Text('Manage products'),
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const ManageProductsPage()),
+          ),
         ),
       ],
     );
